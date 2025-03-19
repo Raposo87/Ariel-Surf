@@ -307,7 +307,7 @@ section {
 .modal-content {
   background-color: #f0f8ff;
   margin: 5% auto;
-  padding: 30px;
+  padding: 3px;
   border-radius: 12px;
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
   position: relative;
@@ -325,7 +325,7 @@ section {
 
 .close-modal {
   position: absolute;
-  top: 15px;
+  top: 50px;
   right: 20px;
   font-size: 28px;
   color: #00394d;
@@ -537,5 +537,38 @@ footer {
 
   .nav-links {
       display: none;
+  }
+
+  .work-item, .work-item:nth-child(even) {
+    flex-direction: column;
+  }
+  
+  .work-image {
+    width: 100%;
+    max-width: 100%;
+    padding: 0px;
+  }
+  
+  .work-image img {
+    width: 100%;
+    height: auto;
+    max-height: 400px; /* Altura máxima em modo mobile */
+    object-fit: cover;
+  }
+  
+  /* Melhoria na responsividade do modal */
+  .modal-content {
+    width: 95%;
+    padding: 20px;
+    margin: 10% auto;
+  }
+  
+  .price-table th, .price-table td {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+  
+  .modal-includes ul li {
+    font-size: 0.9rem;
   }
 }
