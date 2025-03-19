@@ -75,3 +75,66 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   });
 });
+
+// Funcionalidade para os modais de preços
+document.addEventListener('DOMContentLoaded', function() {
+    // Associar os botões aos modais correspondentes
+    const modalButtons = [
+      { btnSelector: '#servicos .work-item:nth-child(1) .btn', modalId: 'modal-aulas-particulares' },
+      { btnSelector: '#servicos .work-item:nth-child(2) .btn', modalId: 'modal-aulas-grupo' },
+      { btnSelector: '#servicos .work-item:nth-child(3) .btn', modalId: 'modal-surf-camps' },
+      { btnSelector: '#servicos .work-item:nth-child(4) .btn', modalId: 'modal-surf-trips' }
+    ];
+    
+    // Configurar cada botão
+    modalButtons.forEach(config => {
+      const btn = document.querySelector(config.btnSelector);
+      const modal = document.getElementById(config.modalId);
+      
+      if (btn && modal) {
+        // Prevenir o comportamento padrão (abrir WhatsApp)
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          openModal(modal);
+        });
+      }
+    });
+    
+    // Configurar os botões de fechar para todos os modais
+    const closeButtons = document.querySelectorAll('.close-modal');
+    closeButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        const modal = this.closest('.price-modal');
+        closeModal(modal);
+      });
+    });
+    
+    // Fechar o modal clicando fora dele
+    const modals = document.querySelectorAll('.price-modal');
+    modals.forEach(modal => {
+      modal.addEventListener('click', function(e) {
+        if (e.target === this) {
+          closeModal(this);
+        }
+      });
+    });
+    
+    // Funções para abrir e fechar o modal
+    function openModal(modal) {
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden'; // Impedir rolagem da página
+      
+      // Fechar modal com a tecla ESC
+      document.addEventListener('keydown', function escKeyClose(e) {
+        if (e.key === 'Escape') {
+          closeModal(modal);
+          document.removeEventListener('keydown', escKeyClose);
+        }
+      });
+    }
+    
+    function closeModal(modal) {
+      modal.classList.remove('show');
+      document.body.style.overflow = ''; // Restaurar rolagem da página
+    }
+  });

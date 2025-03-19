@@ -61,7 +61,7 @@ header {
 
 .btn {
   display: inline-block;
-  padding: 12px 30px;
+  padding: 4px 37px;
   background-color: #10B981;
   color: white;
   text-decoration: none;
@@ -143,8 +143,8 @@ section {
   bottom: -15px;
   left: 50%;
   transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
+  width: 200px;
+  height: 3px;
   background: linear-gradient(to right, #00394d, #10B981);
 }
 
@@ -269,7 +269,7 @@ section {
 .work-text {
   flex: 1;
   min-width: 300px;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .work-text h3 {
@@ -282,6 +282,140 @@ section {
   margin-bottom: 1.5rem;
   font-size: 1.1rem;
 }
+
+
+
+.price-modal {
+  display: none;
+  position: fixed;
+  z-index: 1100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.price-modal.show {
+  display: block;
+  opacity: 1;
+}
+
+.modal-content {
+  background-color: #f0f8ff;
+  margin: 5% auto;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  transform: translateY(-50px);
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.price-modal.show .modal-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  color: #00394d;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 50%;
+}
+
+.close-modal:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  transform: scale(1.1);
+}
+
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0 30px;
+}
+
+.price-table th, .price-table td {
+  padding: 10px 5px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.price-table th {
+  background-color: #10B981;
+  color: white;
+}
+
+.price-table tr:hover {
+  background-color: #e0f7fa;
+}
+
+.modal-btn {
+  display: block;
+  width: fit-content;
+  margin: 20px auto 0;
+  padding: 10px 40px;
+  font-size: 1.1rem;
+}
+
+.modal-includes {
+  background-color: rgba(16, 185, 129, 0.1);
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.modal-includes h3 {
+  color: #10B981;
+  margin-bottom: 10px;
+}
+
+.modal-includes ul {
+  list-style: none;
+  padding-left: 5px;
+}
+
+.modal-includes ul li {
+  padding: 5px 0;
+  position: relative;
+  padding-left: 25px;
+}
+
+.modal-includes ul li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #10B981;
+  font-weight: bold;
+}
+
+/* Melhorias nos botões de Saiba Mais */
+.work-text .btn {
+  transition: all 0.3s ease;
+}
+
+.work-text .btn:hover {
+  background-color: #059669;
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+}
+
+
+
 
 /* Rodapé */
 footer {
@@ -296,6 +430,7 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  gap: 28px;
 }
 
 .footer-col {
@@ -340,10 +475,7 @@ footer {
   padding-left: 5px;
 }
 
-.social-icons {
-  display: flex;
-  margin-top: 1.5rem;
-}
+
 
 .social-icons a {
   display: flex;
@@ -357,6 +489,23 @@ footer {
   color: white;
   text-decoration: none;
   transition: all 0.3s ease;
+}
+.social-icons {
+  display: flex;
+  left: 57%;
+  margin-right: 51%;
+  bottom: 20px;
+}
+
+.social-icons .bx {
+  border-radius: 30%;
+  box-shadow: 2px 2px 3px var(--text-color);
+}
+
+.social-icons a {
+  color: var(--midia-social);
+  font-size: 30px;
+  padding: 2px;
 }
 
 .social-icons a:hover {
