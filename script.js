@@ -138,3 +138,73 @@ document.addEventListener('DOMContentLoaded', function() {
       document.body.style.overflow = ''; // Restaurar rolagem da página
     }
   });
+
+  // Função para buscar dados do clima
+function fetchWeather() {
+  // Coordenadas da Costa da Caparica, Portugal
+  const lat = 38.6446;  // Latitude da Costa da Caparica
+  const lon = -9.2357;  // Longitude da Costa da Caparica
+  const apiKey = '82dbdac20e5e618b213c94fcc8287f14';
+  const lang = 'pt';    // Idioma português (formato internacional)
+  const units = 'metric'; // Celsius
+  
+  fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}&lang=${lang}`)
+    .then(response => response.json())
+    .then(data => {
+      updateWeatherWidget(data);
+    })
+    .catch(error => {
+      console.error('Erro ao buscar dados do clima:', error);
+    });
+}
+
+// Função para atualizar o widget com os dados do clima
+function updateWeatherWidget(data) {
+  const tempElement = document.querySelector('.weather-temp');
+  const descElement = document.querySelector('.weather-desc');
+  const humidityElement = document.querySelector('.weather-humidity');
+  const iconElement = document.querySelector('.weather-icon');
+  
+  if (data.main && data.weather && data.weather[0]) {
+    const temp = Math.round(data.main.temp);
+    const description = data.weather[0].description;
+    const humidity = data.main.humidity;
+    const iconCode = data.weather[0].icon;
+    
+    tempElement.textContent = `${temp}°C`;
+    descElement.textContent = description;
+    humidityElement.textContent = `Umidade: ${humidity}%`;
+    iconElement.src = `https://openweathermap.org/img/wn/${iconCode}.png`;
+    iconElement.alt = description;
+  }
+}
+
+// Buscar dados do clima quando a página carregar
+document.addEventListener('DOMContentLoaded', fetchWeather);
+
+// Atualizar a cada hora (3600000 ms)
+setInterval(fetchWeather, 3600000);
+
+ // Adicionar informações específicas para surfistas
+ if (data.wind && data.main) {
+  const windSpeed = (data.wind.speed * 3.6).toFixed(1); // Converter m/s para km/h
+  const windDirection = data.wind.deg || '--';
+  const pressure = data.main.pressure;
+  
+  // Adicionar estas informações ao widget
+  const surfInfo = `
+    Vento: ${windSpeed} km/h (${getWindDirection(windDirection)})
+    Pressão: ${pressure} hPa
+  `;
+  // Você pode criar elementos adicionais para mostrar estas informações
+}
+
+// Função auxiliar para direção do vento
+function getWindDirection(degrees) {
+const directions = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
+const index = Math.round(degrees / 22.5) % 16;
+return directions[index];
+}
+
+
+

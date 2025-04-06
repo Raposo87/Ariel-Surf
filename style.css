@@ -58,6 +58,38 @@ header {
   margin-bottom: 2rem;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
+/* Widget de Clima */
+.weather-widget {
+  display: flex;
+  align-items: center;
+  color: white;
+  margin-left: 74rem;
+  background-color: rgba(86, 139, 60, 0.459);
+  border-radius: 20px;
+
+}
+
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 24px;
+}
+
+.weather-temp {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.weather-details {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+}
+
+.weather-icon {
+  width: 40px;
+  height: 40px;
+}
 
 .btn {
   display: inline-block;
@@ -530,6 +562,14 @@ footer {
   .header-content p {
       font-size: 1.2rem;
   }
+
+.weather-widget {
+    color: white;
+    margin-left: 12rem;
+    background-color: rgba(86, 139, 60, 0.459);
+    border-radius: 20px;
+    margin-top: -79px;
+}
 
   .work-item, .work-item:nth-child(even) {
       flex-direction: column;
