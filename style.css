@@ -64,9 +64,10 @@ header {
   align-items: center;
   color: white;
   margin-left: 74rem;
-  background-color: rgba(86, 139, 60, 0.459);
+  background-color: rgba(0, 145, 255, 0.294);
   border-radius: 20px;
-
+  margin-bottom: 5rem;
+  margin-top: -11rem;
 }
 
 .weather-info {
@@ -552,6 +553,10 @@ footer {
   margin-top: 2rem;
   width: 100%;
 }
+.igor{
+  font-size: 0.8rem;
+  text-align: center;
+}
 
 /* Responsividade */
 @media screen and (max-width: 768px) {
@@ -566,9 +571,13 @@ footer {
 .weather-widget {
     color: white;
     margin-left: 12rem;
-    background-color: rgba(86, 139, 60, 0.459);
+    background-color: rgba(0, 145, 255, 0.294);
     border-radius: 20px;
-    margin-top: -79px;
+    margin-top: -10rem;
+}
+
+.section-title {
+  font-size: 2.1rem;
 }
 
   .work-item, .work-item:nth-child(even) {
