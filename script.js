@@ -211,4 +211,22 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-
+// Forçar reprodução de vídeo no Safari
+document.addEventListener('DOMContentLoaded', function() {
+  const video = document.getElementById('video-header');
+  
+  // Tenta reproduzir o vídeo programaticamente
+  function attemptPlay() {
+    video.play().catch(error => {
+      // Se falhar, tenta novamente após um pequeno atraso
+      setTimeout(attemptPlay, 200);
+    });
+  }
+  
+  // Inicia a tentativa de reprodução
+  attemptPlay();
+  
+  // Adiciona evento para tentar novamente quando o usuário interagir com a página
+  document.addEventListener('click', attemptPlay);
+  document.addEventListener('touchstart', attemptPlay);
+});
