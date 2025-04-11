@@ -179,6 +179,7 @@ function updateWeatherWidget(data) {
   }
 }
 
+
 // Buscar dados do clima quando a página carregar
 document.addEventListener('DOMContentLoaded', fetchWeather);
 
@@ -206,18 +207,22 @@ const index = Math.round(degrees / 22.5) % 16;
 return directions[index];
 }
 
+
+
 // Menu hambúrguer para mobile
+
 document.addEventListener('DOMContentLoaded', function() {
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
   
   if (hamburger && navLinks) {
     hamburger.addEventListener('click', function(e) {
+      e.preventDefault();
       e.stopPropagation(); // Impede a propagação do evento
       this.classList.toggle('is-active');
       navLinks.classList.toggle('active');
       
-      // Impede a rolagem da página quando o menu está aberto
+      // Controla a rolagem da página
       if (navLinks.classList.contains('active')) {
         document.body.style.overflow = 'hidden';
       } else {
@@ -225,9 +230,11 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
     
-    // Fechar o menu ao clicar em um link ou fora do menu
+    // Fechar o menu ao clicar fora dele
     document.addEventListener('click', function(e) {
-      if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+      if (navLinks.classList.contains('active') && 
+          !navLinks.contains(e.target) && 
+          !hamburger.contains(e.target)) {
         hamburger.classList.remove('is-active');
         navLinks.classList.remove('active');
         document.body.style.overflow = '';
