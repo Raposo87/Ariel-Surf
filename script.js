@@ -206,5 +206,42 @@ const index = Math.round(degrees / 22.5) % 16;
 return directions[index];
 }
 
-
-
+// Menu hambúrguer para mobile
+document.addEventListener('DOMContentLoaded', function() {
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', function(e) {
+      e.stopPropagation(); // Impede a propagação do evento
+      this.classList.toggle('is-active');
+      navLinks.classList.toggle('active');
+      
+      // Impede a rolagem da página quando o menu está aberto
+      if (navLinks.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+    
+    // Fechar o menu ao clicar em um link ou fora do menu
+    document.addEventListener('click', function(e) {
+      if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+        hamburger.classList.remove('is-active');
+        navLinks.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+    
+    // Fechar o menu ao clicar em um link
+    const navItems = document.querySelectorAll('.nav-links a');
+    navItems.forEach(item => {
+      item.addEventListener('click', function() {
+        hamburger.classList.remove('is-active');
+        navLinks.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+});

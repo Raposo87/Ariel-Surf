@@ -18,6 +18,65 @@ body {
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 /* Cabeçalho */
+.hamburger {
+  display: none;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger-box {
+  width: 30px;
+  height: 24px;
+  display: inline-block;
+  position: relative;
+}
+
+.hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: -2px;
+}
+
+.hamburger-inner, 
+.hamburger-inner::before, 
+.hamburger-inner::after {
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  border-radius: 4px;
+  position: absolute;
+  transition: transform 0.15s ease;
+}
+
+.hamburger-inner::before, 
+.hamburger-inner::after {
+  content: "";
+  display: block;
+}
+
+.hamburger-inner::before {
+  top: -10px;
+}
+
+.hamburger-inner::after {
+  bottom: -10px;
+}
+
+/* Estado ativo do hambúrguer */
+.hamburger.is-active .hamburger-inner {
+  transform: rotate(45deg);
+}
+
+.hamburger.is-active .hamburger-inner::before {
+  transform: translateY(10px) rotate(90deg);
+}
+
+.hamburger.is-active .hamburger-inner::after {
+  opacity: 0;
+}
 header {
   position: relative;
   height: 100vh;
@@ -37,7 +96,15 @@ header {
   filter: brightness(0.7);
   z-index: -1;
 }
-
+#video-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
 .header-content {
   text-align: center;
   color: white;
@@ -45,6 +112,7 @@ header {
   max-width: 800px;
   background-color: rgba(0, 56, 77, 0.357);
   border-radius: 10px;
+  z-index: 1;
 }
 
 .header-content h1 {
@@ -560,12 +628,60 @@ footer {
 
 /* Responsividade */
 @media screen and (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background: linear-gradient(to bottom, #00394d, #10B981);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: right 0.3s ease;
+    padding-top: 80px;
+    z-index: 1000;
+  }
+  
+  .nav-links.active {
+    right: 0;
+  }
+  
+  .nav-links li {
+    margin: 1.5rem 0;
+    margin-left: 0;
+  }
+  
+  .nav-links a {
+    font-size: 1.2rem;
+  }
   .header-content h1 {
       font-size: 2.5rem;
   }
 
   .header-content p {
       font-size: 1.2rem;
+  }
+  header {
+    height: 90vh;
+  }
+  
+  .header-content {
+    padding: 1.5rem;
+    margin: 0 1rem;
+  }
+  
+  .header-content h1 {
+    font-size: 2.2rem;
+  }
+  
+  .header-content p {
+    font-size: 1.1rem;
   }
 
 .weather-widget {
@@ -584,9 +700,6 @@ footer {
       flex-direction: column;
   }
 
-  .nav-links {
-      display: none;
-  }
 
   .work-item, .work-item:nth-child(even) {
     flex-direction: column;
