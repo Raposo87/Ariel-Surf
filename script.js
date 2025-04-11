@@ -186,19 +186,7 @@ document.addEventListener('DOMContentLoaded', fetchWeather);
 // Atualizar a cada hora (3600000 ms)
 setInterval(fetchWeather, 3600000);
 
- // Adicionar informações específicas para surfistas
- if (data.wind && data.main) {
-  const windSpeed = (data.wind.speed * 3.6).toFixed(1); // Converter m/s para km/h
-  const windDirection = data.wind.deg || '--';
-  const pressure = data.main.pressure;
-  
-  // Adicionar estas informações ao widget
-  const surfInfo = `
-    Vento: ${windSpeed} km/h (${getWindDirection(windDirection)})
-    Pressão: ${pressure} hPa
-  `;
-  // Você pode criar elementos adicionais para mostrar estas informações
-}
+
 
 // Função auxiliar para direção do vento
 function getWindDirection(degrees) {
@@ -208,6 +196,19 @@ return directions[index];
 }
 
 
+// menu hamburger
+document.addEventListener('DOMContentLoaded', function() {
+  const hamburger = document.createElement('div');
+  hamburger.className = 'hamburger';
+  hamburger.innerHTML = '<div class="bar"></div><div class="bar"></div><div class="bar"></div>';
+  
+  const nav = document.getElementById('mainNav');
+  nav.appendChild(hamburger);
+  
+  hamburger.addEventListener('click', function() {
+    this.classList.toggle('active');
+    document.querySelector('.nav-links').classList.toggle('active');
+  });
+});
 
-// Menu hambúrguer para mobile
 

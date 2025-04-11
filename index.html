@@ -15,8 +15,12 @@
     <nav id="mainNav">
       <a href="#" class="logo">Surf with Ariel</a>
       
-      <!-- Botão do menu hambúrguer -->
-      
+      <button class="hamburger-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
       <ul class="nav-links">
         <li><a href="#inicio">Início</a></li>
         <li><a href="#galeria">Galeria</a></li>
@@ -28,11 +32,17 @@
     <!-- Cabeçalho com foto e texto -->
     <header id="inicio">
       <video autoplay muted loop id="video-header">
-        <source src="https://res.cloudinary.com/dqn2v9mtu/video/upload/v1744384539/V%C3%ADde-Fundo_np7tyw.mp4" type="video/mp4">
-        <img src="https://res.cloudinary.com/dqn2v9mtu/image/upload/v1744384423/IMG-momento4_bqzbrd.jpg" alt="Fallback para vídeo">
+        <source
+          src="https://res.cloudinary.com/dqn2v9mtu/video/upload/v1744384539/V%C3%ADde-Fundo_np7tyw.mp4"
+          type="video/mp4"
+        />
+        <img
+          src="https://res.cloudinary.com/dqn2v9mtu/image/upload/v1744384423/IMG-momento4_bqzbrd.jpg"
+          alt="Fallback para vídeo"
+        />
         Seu navegador não suporta vídeos HTML5.
       </video>
-      
+
       <div class="header-content">
         <h1>Aulas de Surf Profissionais</h1>
         <p>
@@ -47,16 +57,16 @@
 
     <!-- Seção de Carrossel -->
     <section id="galeria" class="carousel-section">
-        <div class="weather-widget">
-            <div class="weather-info">
-              <span class="weather-temp">--°C</span>
-              <div class="weather-details">
-                <span class="weather-desc">--</span>
-                <span class="weather-humidity">Umidade: --%</span>
-              </div>
-            </div>
-            <img class="weather-icon" src="" alt="Ícone do clima" />
+      <div class="weather-widget">
+        <div class="weather-info">
+          <span class="weather-temp">--°C</span>
+          <div class="weather-details">
+            <span class="weather-desc">--</span>
+            <span class="weather-humidity">Umidade: --%</span>
           </div>
+        </div>
+        <img class="weather-icon" src="" alt="Ícone do clima" />
+      </div>
       <h2 class="section-title">Galeria de Momentos</h2>
       <div class="carousel-container">
         <div class="carousel">
@@ -427,6 +437,7 @@
     </footer>
     <script src="script.js"></script>
   </body>
+
   <p class="igor">
     Feito por: <a href="https://igorraposo.pt/" target="_blank">I.Raposo</a>
   </p>
