@@ -3,18 +3,107 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Escola de Surf</title>
+    <title>
+      Aulas de Surf na Costa da Caparica | Surf with Ariel - Professor
+      Certificado
+    </title>
+    <meta
+      name="description"
+      content="Aulas de surf particulares e em grupo na Costa da Caparica com professor experiente. Aprenda a surfar com segurança ou aprimore suas técnicas. Equipamento incluído."
+    />
+    <meta
+      name="keywords"
+      content="aulas de surf costa caparica, professor surf caparica, escola surf lisboa, aprender surf portugal, surf lessons caparica, surf school portugal"
+    />
+    <meta name="author" content="Ariel Freitas - Professor de Surf" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://surfwithariel.pt/" />
+    <meta
+      property="og:title"
+      content="Aulas de Surf na Costa da Caparica | Surf with Ariel"
+    />
+    <meta
+      property="og:description"
+      content="Aulas de surf particulares e em grupo na Costa da Caparica com professor experiente. Aprenda a surfar com segurança ou aprimore suas técnicas."
+    />
+    <meta
+      property="og:image"
+      content="https://res.cloudinary.com/dqn2v9mtu/image/upload/v1744384423/IMG-momento4_bqzbrd.jpg"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://surfwithariel.pt/" />
+    <meta
+      property="twitter:title"
+      content="Aulas de Surf na Costa da Caparica | Surf with Ariel"
+    />
+    <meta
+      property="twitter:description"
+      content="Aulas de surf particulares e em grupo na Costa da Caparica com professor experiente. Aprenda a surfar com segurança ou aprimore suas técnicas."
+    />
+    <meta
+      property="twitter:image"
+      content="https://res.cloudinary.com/dqn2v9mtu/image/upload/v1744384423/IMG-momento4_bqzbrd.jpg"
+    />
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Preload de recursos críticos -->
+    <link rel="preload" href="style.css" as="style" />
+    <link
+      rel="preload"
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      as="style"
+    />
+    <link rel="preload" href="script.js" as="script" />
+
+    <!-- Preconnect para fontes e CDNs -->
+    <link rel="preconnect" href="https://res.cloudinary.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SportsActivityLocation",
+        "name": "Surf with Ariel",
+        "description": "Escola de surf na Costa da Caparica oferecendo aulas particulares e em grupo para todos os níveis.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Praia Nova, Tarquinio, São João",
+          "addressLocality": "Costa da Caparica",
+          "addressCountry": "PT"
+        },
+        "telephone": "+351932463711",
+        "email": "freitasariel57@gmail.com",
+        "image": "https://res.cloudinary.com/dqn2v9mtu/image/upload/v1744384423/IMG-momento4_bqzbrd.jpg",
+        "priceRange": "€30 - €70",
+        "openingHours": "Mo-Fr 07:00-18:00, Sa-Su 06:00-17:00",
+        "url": "https://surfwithariel.pt",
+        "sameAs": ["https://www.instagram.com/ventz7/"]
+      }
+    </script>
   </head>
   <body>
     <!-- Navegação -->
     <nav id="mainNav">
       <a href="#" class="logo">Surf with Ariel</a>
-      
+
       <button class="hamburger-btn">
         <span></span>
         <span></span>
@@ -31,14 +120,23 @@
 
     <!-- Cabeçalho com foto e texto -->
     <header id="inicio">
-      <video autoplay muted loop playsinline id="video-header">
+      <!-- Vídeo de fundo otimizado -->
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        id="video-header"
+        poster="https://res.cloudinary.com/dqn2v9mtu/image/upload/v1744384423/IMG-momento4_bqzbrd.jpg"
+      >
         <source
           src="https://res.cloudinary.com/dqn2v9mtu/video/upload/v1744384539/V%C3%ADde-Fundo_np7tyw.mp4"
           type="video/mp4"
         />
         <img
           src="https://res.cloudinary.com/dqn2v9mtu/image/upload/v1744384423/IMG-momento4_bqzbrd.jpg"
-          alt="Fallback para vídeo"
+          alt="Aula de surf na praia da Costa da Caparica"
+          loading="lazy"
         />
         Seu navegador não suporta vídeos HTML5.
       </video>
@@ -46,8 +144,10 @@
       <div class="header-content">
         <h1>Aulas de Surf Profissionais</h1>
         <p>
-          Aprenda a surfar com quem entende do mar e das ondas. Metodologia
-          exclusiva para todas as idades e níveis.
+          Aprenda a surfar na praia da Costa da Caparica com aulas particulares
+          ou em grupo. Metodologia exclusiva para todas as idades e níveis,
+          desde iniciantes até surfistas avançados. Equipamento incluso e
+          segurança garantida.
         </p>
         <a href="https://wa.me/+351932463711" target="_blank" class="btn"
           >Agende sua Aula</a
@@ -127,6 +227,7 @@
             <img
               src="https://res.cloudinary.com/dqn2v9mtu/image/upload/v1744384413/IMG-particular_pwa6wh.jpg"
               alt="Aula inicial de surf"
+              loading="lazy"
             />
           </div>
           <div class="work-text">
@@ -150,7 +251,7 @@
           <div class="work-image">
             <img
               src="https://res.cloudinary.com/dqn2v9mtu/image/upload/v1744384272/IMG-grupo_ihac8q.jpg"
-              alt="Aperfeiçoamento de técnicas"
+              alt="Aperfeiçoamento de técnicas" loading="lazy"
             />
           </div>
           <div class="work-text">
@@ -174,7 +275,7 @@
           <div class="work-image">
             <img
               src="https://res.cloudinary.com/dqn2v9mtu/image/upload/v1744384365/IMG-camp_hoiji1.jpg"
-              alt="Surf camp com amigos"
+              alt="Surf camp com amigos" loading="lazy"
             />
           </div>
           <div class="work-text">
@@ -197,7 +298,7 @@
           <div class="work-image">
             <img
               src="https://res.cloudinary.com/dqn2v9mtu/image/upload/v1744384423/IMG-momento4_bqzbrd.jpg"
-              alt="Surf camp com amigos"
+              alt="Surf camp com amigos" loading="lazy"
             />
           </div>
           <div class="work-text">
